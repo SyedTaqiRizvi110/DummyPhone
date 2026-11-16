@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f2" />
+    <title>Forme — Phones, thoughtfully chosen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement">
+      <span>Good tech. Better decisions.</span>
+      <span class="announcement-detail">Free delivery on every order <span aria-hidden="true">→</span></span>
+    </div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="Forme home">forme<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#shop">Shop all</a>
+        <a href="#shop" data-nav-filter="Apple">iPhone</a>
+        <a href="#shop" data-nav-filter="Samsung">Samsung</a>
+        <a href="#about">Our promise</a>
+      </nav>
+      <div class="header-actions">
+        <label class="search-box">
+          <span class="sr-only">Search phones</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.2 4.2"></path></svg>
+          <input id="search-input" type="search" placeholder="Find your phone" autocomplete="off" />
+        </label>
+        <button class="cart-button" id="open-cart" aria-label="Open shopping bag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 12H4L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg>
+          <span>Bag</span><span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Your next phone, figured out</p>
+          <h1 id="hero-title">A little more<br />phone for <em>you.</em></h1>
+          <p class="hero-description">The latest from Apple and Samsung, picked for the way you actually live. No guesswork. Just great phones.</p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#shop">Find your phone <span aria-hidden="true">↗</span></a>
+            <span class="hero-note">Thoughtful picks. Straightforward prices.</span>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-avatars" aria-hidden="true"><span>M</span><span>A</span><span>J</span></div>
+            <p><strong>Loved by 2,400+ customers</strong><br />★★★★★ <span>4.9 / 5 average rating</span></p>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Featured iPhone and Samsung smartphones">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-sticker"><span>THE GOOD<br />PHONE GUIDE</span><span class="sticker-star">✳</span></div>
+          <div class="hero-phone hero-phone-back" aria-hidden="true">
+            <div class="hero-camera"><i></i><i></i><i></i><b></b></div>
+            <span></span>
+          </div>
+          <div class="hero-phone hero-phone-front" aria-hidden="true">
+            <div class="hero-screen-glow"></div>
+            <div class="screen-time">9:41</div>
+            <div class="screen-pill"></div>
+          </div>
+          <div class="hero-caption"><span class="caption-line"></span><span>Made for your everyday</span></div>
+          <div class="hero-caption caption-right"><span class="caption-line"></span><span>Ready for your next big thing</span></div>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="Shopping benefits">
+        <div class="benefit"><span class="benefit-icon">✳</span><span><strong>Free delivery</strong><small>On every single order</small></span></div>
+        <div class="benefit"><span class="benefit-icon">↺</span><span><strong>30-day returns</strong><small>Take your time deciding</small></span></div>
+        <div class="benefit"><span class="benefit-icon">♡</span><span><strong>Picked with care</strong><small>Only phones worth your while</small></span></div>
+        <div class="benefit"><span class="benefit-icon">☻</span><span><strong>Real human help</strong><small>Here when you need us</small></span></div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The shortlist</p>
+            <h2>Find your kind of <em>phone.</em></h2>
+          </div>
+          <p class="section-note">A few brilliant options.<br />A much easier choice.</p>
+        </div>
+        <div class="shop-controls">
+          <div class="filter-tabs" role="group" aria-label="Filter by brand">
+            <button class="filter-tab active" data-filter="All">All phones <span>6</span></button>
+            <button class="filter-tab" data-filter="Apple">iPhone</button>
+            <button class="filter-tab" data-filter="Samsung">Samsung</button>
+          </div>
+          <label class="sort-control">Sort by
+            <select id="sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+            </select>
+          </label>
+        </div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No phones match that search. Try another name or brand.</p>
+      </section>
+
+      <section class="promise-section" id="about">
+        <div class="promise-art">
+          <div class="promise-orbit"></div>
+          <div class="promise-phone" aria-hidden="true"><div class="promise-camera"><i></i><i></i><i></i></div></div>
+          <span class="promise-spark spark-one">✳</span>
+          <span class="promise-spark spark-two">✦</span>
+        </div>
+        <div class="promise-copy">
+          <p class="eyebrow">A better way to buy</p>
+          <h2>Big phone energy.<br /><em>Small amount of fuss.</em></h2>
+          <p>We think buying a phone should feel exciting, not like homework. So we keep the range focused, the prices clear, and the advice honest.</p>
+          <a class="text-link" href="#shop">Meet your next phone <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark footer-wordmark" href="#">forme<span>.</span></a>
+      <p>Good phones. Good people. Good choice.</p>
+      <span>© 2026 Forme Mobile</span>
+    </footer>
+
+    <div class="cart-overlay" id="cart-overlay" hidden>
+      <button class="overlay-scrim" id="close-cart-scrim" aria-label="Close shopping bag"></button>
+      <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-header">
+          <div><p class="eyebrow">Your good choices</p><h2 id="cart-title">Your bag <span id="drawer-count">(0)</span></h2></div>
+          <button class="icon-button" id="close-cart" aria-label="Close shopping bag">×</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-empty" id="cart-empty"><span>♡</span><p>Your bag is taking a little breather.</p><button class="text-link" id="continue-shopping">Find a phone <span aria-hidden="true">→</span></button></div>
+        <div class="cart-footer" id="cart-footer" hidden>
+          <div class="cart-subtotal"><span>Subtotal</span><strong id="cart-subtotal">$0</strong></div>
+          <p>Free delivery included. Taxes calculated at checkout.</p>
+          <button class="button button-dark checkout-button" id="checkout-button">Continue to checkout <span aria-hidden="true">→</span></button>
+        </div>
+      </aside>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
