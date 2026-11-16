@@ -183,8 +183,9 @@ function renderProducts() {
         <span class="product-brand">${product.brand}</span>
         <span class="product-rating"><span aria-label="5 stars">★★★★★</span> ${product.rating}</span>
       </div>
-      <h3 class="product-name">${product.name}</h3>
+      <h3 class="product-name"><a href="products/${product.id}.html">${product.name}</a></h3>
       <p class="product-description">${product.detail}</p>
+      <p class="product-delivery">Cash on delivery available</p>
       <div class="product-purchase">
         <span class="product-price">${money.format(product.price)}${product.was ? ` <del>${money.format(product.was)}</del>` : ""}</span>
         <button class="add-button" data-add="${product.id}" aria-label="Add ${product.name} to bag">Add to bag <span aria-hidden="true">+</span></button>
@@ -300,3 +301,4 @@ document.addEventListener("keydown", (event) => {
 
 renderProducts();
 renderCart();
+if (new URLSearchParams(window.location.search).has("openCart")) openCart();
